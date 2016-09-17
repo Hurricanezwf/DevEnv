@@ -1,5 +1,11 @@
 [user]
-	name = Hurricanezwf
+	name = zwf
 	email = 1094646850@qq.com
 [color]
 	ui = true
+[alias]
+	co = checkout
+	br = branch
+	cm = commit
+	st = status
+	last = log -1 HEAD
