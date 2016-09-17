@@ -12,7 +12,7 @@
     Plugin 'winmanager'
     Plugin 'Visual-Mark'
     Plugin 'neocomplcache'							"自动补全插件
-    Plugin 'kshenoy/vim-signature'
+    Plugin 'kshenoy/vim-signature'					"打标签的插件
 	Plugin 'kien/ctrlp.vim'							"搜索文件的
 	Plugin 'wting/autojump'							"通过j快速跳转目录
 	Plugin 'majutsushi/tagbar'						"生成右侧代码框架栏
@@ -119,4 +119,5 @@ nnoremap <F8> :TagbarToggle<CR>
 " m<space>   去除所有标签
 
 
-" 试试在某函数的名字上按gd,看能不能跳转到其定义处
+" 试试在某函数的名字上按gd,看能不能跳转到其定义处,再按ctrl+o返回原处
+" 试试使用ctrl+p呼出查找文件功能，然后通过ctrl+j或者ctrl+k进行文件选择，最后按ctrl+t在新标签打开选择的文件._
