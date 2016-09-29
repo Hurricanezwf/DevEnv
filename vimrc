@@ -45,7 +45,21 @@ let g:ctrlp_cmd = 'CtrlPMixed'
 "-------------------------- vim-def配置 ---------------------------------"
 "let g:godef_split=2
 
+"let g:go_highlight_trailing_whitespace_error = 0
+"let g:go_fmt_autosave = 0
+"let g:go_fmt_fail_silently = 1
 
+let mapleader = ","
+au FileType go nmap <leader>r <Plug>(go-run)
+au FileType go nmap <leader>b <Plug>(go-build)
+au FileType go nmap <leader>t <Plug>(go-test)
+au FileType go nmap <leader>c <Plug>(go-coverage)
+au FileType go nmap <Leader>d <Plug>(go-def-vertical)
+au FileType go nmap <Leader>s <Plug>(go-implements)
+au FileType go nmap gi :GoImports<CR>
+au FileType go nmap gl :GoMetaLinter<CR>
+au FileType go nmap gc :GoCallees<CR>
+au FileType go nmap gr :GoReferrers<CR>
 
 
 
@@ -107,6 +121,8 @@ nnoremap <F11> ^d2<Right>
 "配置F8为tagbar的toggle快捷键
 inoremap <F8> <ESC>:TagbarToggle<CR>
 nnoremap <F8> :TagbarToggle<CR>
+"配置^o为go的输入代码提示
+imap <C-o> <C-x><C-o>
 
 
 
