@@ -14,7 +14,7 @@ cd $tmpdir
 
 # 安装前置软件
 #sudo yum -y install git ctags tmux zsh openssh-server
-git clone http://gmarik/vundle.git $HOME/.vim/bundle/vundle
+git clone http://github.com/gmarik/vundle.git $HOME/.vim/bundle/vundle
 git clone http://github.com/Hurricanezwf/DevEnv.git
 echo -e "\033[33mInstall pre-software done, please ensure all is installed success!\033[0m"
 echo "Press enter to next step or Ctrl+C to quit!"
