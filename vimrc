@@ -26,7 +26,8 @@
 
 
 "------------------------------- winmanager插件配置----------------------"
-let g:winManagerWindowLayout='FileExplorer|TagList'
+"let g:winManagerWindowLayout='FileExplorer|TagList'
+let g:winManagerWindowLayout='FileExplorer'
 nnoremap wm :WMToggle<cr>
 
 
@@ -80,15 +81,18 @@ set noswf						"不使用交换文件
 set completeopt=preview,menu	"代码补全
 set cursorline					"突出显示当前行
 set laststatus=2				"显示状态栏
-:colorscheme desert				"配色方案
+colorscheme molokai	     	  	"配色方案
+"colorscheme desert
 set t_Co=256					"设定支持256色
 set tabstop=4       			"tab所占空格数
 set shiftwidth=4    			"自动缩进所用空格数
 "set expandtab       			"将tab转换为空格,可用set list显示空格和tab符,可用ret将所有tab转换为空格
 set noexpandtab    				"不将tab转换为空格
 set ignorecase      			"搜索忽略大小写
+set smartcase					"有一个大写字母，则切换到大小写敏感
 set incsearch       			"输入字符串就显示匹配点
 set nowrapscan      			"当搜索到结尾时就不再搜索
+"set hlsearch					"设置高亮搜索
 set foldenable					"允许折叠
 set foldmethod=manual			"手动折叠
 set fileencodings=utf8,ucs-bom,gbk,gb2312	"set file encoding support
@@ -112,9 +116,9 @@ endif
 "配置F3为保存快捷键(set F3 as save)
 inoremap <F3> <ESC>:GoImports:w<CR>
 nnoremap <F3> :GoImports<CR>:w<CR>
-"配置F1为注释快捷键
-inoremap <F12> <ESC>^i//
-nnoremap <F12> ^i//<ESC>
+"配置F2为注释快捷键
+inoremap <F2> <ESC>^i//
+nnoremap <F2> ^i//<ESC>
 "配置F11为取消注释快捷键
 inoremap <F11> <ESC>^d2<Right>A
 nnoremap <F11> ^d2<Right>
@@ -123,6 +127,16 @@ inoremap <F8> <ESC>:TagbarToggle<CR>
 nnoremap <F8> :TagbarToggle<CR>
 "配置^o为go的输入代码提示
 imap <C-o> <C-x><C-o>
+"配置触发和关闭搜索高亮的按键
+noremap n :set hlsearch<cr>n
+noremap N :set hlsearch<cr>N
+noremap / :set hlsearch<cr>/
+noremap ? :set hlsearch<cr>?
+noremap * *: set hlsearch<cr>
+noremap i :set nohlsearch<cr>i
+noremap o :set nohlsearch<cr>o
+
+
 
 
 
