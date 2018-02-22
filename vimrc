@@ -98,6 +98,7 @@ set foldmethod=manual			"手动折叠
 set fileencodings=utf8,ucs-bom,gbk,gb2312	"set file encoding support
 set termencoding=utf-8
 set encoding=utf-8
+set clipboard=unnamed
 
 
 if v:lang =~ "utf8$" || v:lang =~"UTF-8$"  
