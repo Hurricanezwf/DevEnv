@@ -17,6 +17,7 @@
 	Plugin 'wting/autojump'							"通过j快速跳转目录
 	Plugin 'majutsushi/tagbar'						"生成右侧代码框架栏
     Plugin 'fatih/vim-go'							"执行:GoInstallBinaries,最好翻墙
+	Plugin 'valloric/youcompleteme'                 "自动补全插件
 
     filetype plugin indent on    " required
 	filetype plugin on
@@ -32,10 +33,37 @@ nnoremap wm :WMToggle<cr>
 
 
 " ------------------------- neocomplcache插件配置 ------------------------"
-let g:neocomplcache_enable_at_startup=1
-let g:neocomplcache_enable_auto_select=1
+"let g:neocomplcache_enable_at_startup=0
+"let g:neocomplcache_enable_auto_select=0
 " 补全弹出窗口选中条目
-hi PmenuSel ctermbg=yellow ctermfg=black
+"hi PmenuSel ctermbg=yellow ctermfg=black
+
+
+" ------------------------- YouCompleteMe配置 --------------------"
+let g:ycm_global_ycm_extra_conf=''
+let g:ycm_add_preview_to_completeopt=0
+let g:ycm_show_diagnostics_ui=0
+let g:ycm_autoclose_preview_window_after_completion=1
+let g:ycm_min_num_identifier_candidate_chars=2
+let g:ycm_max_num_candidates = 8
+let g:ycm_collect_identifiers_from_comments_and_strings=1
+let g:ycm_collect_identifiers_from_tag_files=1
+let g:ycm_seed_identifiers_with_syntax=1
+let g:ycm_complete_in_strings=1
+let g:ycm_semantic_triggers =  {
+			\ 'c,cpp,python,java,go,erlang,perl': ['re!\w{2}'],
+			\ 'cs,lua,javascript': ['re!\w{2}'],
+			\ }
+let g:ycm_filetype_whitelist = { 
+			\ "go":1,
+			\ "c":1,
+			\ "cpp":1, 
+			\ "objc":1,
+			\ "sh":1,
+			\ "zsh":1,
+			\ "zimbu":1,
+			\ }
+
 
 
 " --------------------------- CtrlP插件配置 -----------------------------"
@@ -81,8 +109,7 @@ set noswf						"不使用交换文件
 set completeopt=preview,menu	"代码补全
 set cursorline					"突出显示当前行
 set laststatus=2				"显示状态栏
-colorscheme molokai	     	  	"配色方案
-"colorscheme desert
+colorscheme desert
 set t_Co=256					"设定支持256色
 set tabstop=4       			"tab所占空格数
 set shiftwidth=4    			"自动缩进所用空格数
@@ -98,7 +125,7 @@ set foldmethod=manual			"手动折叠
 set fileencodings=utf8,ucs-bom,gbk,gb2312	"set file encoding support
 set termencoding=utf-8
 set encoding=utf-8
-set clipboard=unnamed
+set completeopt=menu,menuone    "设置YouCompleteMe无讨厌的预览窗口
 
 
 if v:lang =~ "utf8$" || v:lang =~"UTF-8$"  
@@ -118,11 +145,11 @@ endif
 inoremap <F3> <ESC>:GoImports:w<CR>
 nnoremap <F3> :GoImports<CR>:w<CR>
 "配置F2为注释快捷键
-inoremap <F2> <ESC>^i//
-nnoremap <F2> ^i//<ESC>
+"inoremap <F2> <ESC>^i//
+"nnoremap <F2> ^i//<ESC>
 "配置F11为取消注释快捷键
-inoremap <F11> <ESC>^d2<Right>A
-nnoremap <F11> ^d2<Right>
+"inoremap <F11> <ESC>^d2<Right>A
+"nnoremap <F11> ^d2<Right>
 "配置F8为tagbar的toggle快捷键
 inoremap <F8> <ESC>:TagbarToggle<CR>
 nnoremap <F8> :TagbarToggle<CR>
@@ -138,6 +165,9 @@ noremap i :set nohlsearch<cr>i
 noremap o :set nohlsearch<cr>o
 
 
+"---------------------------------"样式设置-----------------------------------"
+highlight PMenu ctermfg=229 ctermbg=242
+highlight PMenuSel ctermfg=216 ctermbg=242
 
 
 
