@@ -1,4 +1,4 @@
-#!bin/sh
+#!/bin/sh
 
 tmpdir="$HOME/.tmp"
 
@@ -48,3 +48,11 @@ echo "(1) add /usr/local/go/bin to ENVIRONMENT PATH"
 echo "(2) mkdir $HOME/GoProj"
 echo "(3) enter .vimrc by vim and execute :PluginInstall to install plugins by vundle"
 echo "(4) fix vim-go: enter .vimrc and then execute :GoInstallBinaries"
+
+
+
+# 配置snippets
+# snippets文件编写参照: https://vimzijun.net/2016/10/30/ultisnip/
+# 官方文档: https://github.com/SirVer/ultisnips/blob/master/doc/UltiSnips.txt
+(1) 在自定义目录下新建UltiSnips目录, 然后编写snippets文件
+(2) 修改.vimrc中的snippets配置, 使其搜索路径指向上一步自定义目录
