@@ -1,0 +1,72 @@
+#-----------------------  key相关 -----------------------------#
+# 设置前缀为ctrl+a                                                                                                                  
+set -g prefix ^a
+unbind ^b
+
+# 设置为vi按键
+setw -g mode-keys vi
+
+# 使用fzf增强会话选择
+bind-key s run-shell "tmux list-sessions -F \"##S\" | fzf-tmux | xargs tmux switch -t; true"
+bind-key S choose-tree -s
+
+# 设置选择窗口映射
+bind-key k select-pane -U      # up
+bind-key j select-pane -D      # down
+bind-key h select-pane -L      # left
+bind-key l select-pane -R      # right
+
+# resize pane
+bind -r C-k resizep -U 5     # upward(C-a C-k)
+bind -r C-j resizep -D 5     # downward
+bind -r C-h resizep -L 5     # to the left
+bind -r C-l resizep -R 5     # to the right
+
+# 按两次C-a使得tmux执行原始的C-a命令
+bind C-a send-prefix
+
+# 绑定reload的快捷键
+bind r source-file ~/.tmux.conf\; display-message "Config reloaded..."
+
+#-------------------------- pane相关 ----------------------------#
+# 设置鼠标选择pane
+#set -g mouse-select-pane on
+
+# 设置pane的基准索引
+setw -g pane-base-index 1
+
+#-------------------------- window相关 ---------------------------#
+# 窗口计数从1开始，方便切换
+set -g base-index 1
+
+# 当有window关闭时自动重新分配索引
+set -g renumber-windows on
+
+# 关闭自动修改window name
+set -g allow-rename off
+setw -g automatic-rename off
+
+# 设置对齐方式
+set -g status-justify centre
+
+#--------------------------- style相关 ----------------------------#
+# 设置消息背景色
+set -g message-bg white
+
+# 状态栏显示设置
+set -g status-right "#h #(date +'%H:%M:%S')"
+
+# 设置状态栏颜色
+set -g status-bg default
+set -g status-fg cyan
+
+# 设置激活的pane的颜色
+set -g pane-active-border-fg "#FFB6C1"
+
+
+
+#--------------------------- 其他设置 -----------------------------#
+set -g escape-time 0
+set -g history-limit 10000
+set -g repeat-time 1000
+run-shell ~/.tmux/tmux-resurrect/resurrect.tmux
